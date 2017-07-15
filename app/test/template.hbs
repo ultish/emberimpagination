@@ -1,0 +1,13 @@
+{{outlet}} hi test
+{{#paper-button onClick=(action 'test')}}Test{{/paper-button}}
+{{#impagination-dataset fetch=(action 'fetch') page-size=10 load-horizon=loadHorizon as |records|}}
+    <div>Records {{records.length}}</div>
+    {{in-viewport did-enter=(action records.setReadOffset 0)}}
+    {{#each records as |record|}}
+        <div>
+            <h3>Record {{record.content.name}}</h3>
+            {{record.content.description}}
+        </div>
+    {{/each}}
+    {{in-viewport did-enter=(action records.setReadOffset records.length)}}
+{{/impagination-dataset}}
