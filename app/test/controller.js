@@ -10,7 +10,6 @@ export default Ember.Controller.extend({
   loadHorizon: 10,
   index: 0,
 
-
   actions: {
     test: function () {
       console.log('test');
